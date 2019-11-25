@@ -9,6 +9,8 @@ use Psr\Log\LoggerInterface;
 
 class TestController extends AbstractController
 {
+
+
     // route.yaml - /helloworld
     public function helloWorld() {
         echo 'hello world<br>';
@@ -20,7 +22,7 @@ class TestController extends AbstractController
      * @Route("/")
      */
     public function testhome() {
-        echo 'hello home<br>';
+        echo 'hello testhome<br>';
         return new Response('home response text');
     }
 

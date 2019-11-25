@@ -18,6 +18,11 @@
         "symfony/yaml": "5.0.*"
     },
     "require-dev": {
+        "easycorp/easy-log-handler": "^1.0.7",
+        "symfony/debug-bundle": "*",
+        "symfony/monolog-bundle": "^3.0",
+        "symfony/profiler-pack": "*",
+        "symfony/var-dumper": "*"
     },
     "config": {
         "preferred-install": {
