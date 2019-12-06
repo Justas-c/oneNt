@@ -11,21 +11,26 @@
 </head>
 <!-- Body -->
 <body>
+
     {% block body %}
     {% block header %}
-        <!-- header here --> header
+        <!-- HEADER --> header
+    {% endblock %}
+
     {% block Content %}
-        <!-- content here --> content
+        <!-- CONTENT --> content
     {% endblock %}
-    {% endblock %}
-        <!-- Footer -->
+
+        <!-- FOOTER -->
         {% block footer %}
             <footer class="footer">
-                <div style="background-image: {{ asset('images/appImgs/homepage-img/footer-img.jpg') }}">
-                    <img src="{{ asset('images/testpic.jpg') }}">
+                <!-- Testing img div -->
+                <!-- <div style="background-image: {# asset('images/appImgs/homepage-img/footer-img.jpg') #}">
+                    <img src="{# asset('images/testpic.jpg') #}">
                     <span>footer</span>
-                </div>
+                </div> -->
             </footer>
+
             <!-- Javascript -->
             {% block javascripts %}
                 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -34,5 +39,6 @@
             {% endblock %} <!-- /javascript -->
         {% endblock %}  <!-- /footer -->
     {% endblock %} <!-- /body -->
+
 </body>
 </html>
