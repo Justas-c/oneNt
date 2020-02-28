@@ -10,6 +10,11 @@ use Psr\Log\LoggerInterface;
 class TestController extends AbstractController
 {
 
+    public function test1()
+    {
+        return new Response('test1 controller');
+    }
+
 
     // route.yaml - /helloworld
     public function helloWorld() {

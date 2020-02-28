@@ -5,3 +5,6 @@
 hello_world:
     path: /helloworld
     controller: App\Controller\TestController::helloWorld
+test1:
+    path: /test1
+    controller: App\Controller\TestController::test1
