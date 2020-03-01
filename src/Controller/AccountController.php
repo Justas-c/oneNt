@@ -3,6 +3,8 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 // use Symfony\Component\HttpFoundation\Response\
+// for @IsGranded annotation:
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * AccountController(Login, Register, etc)
@@ -10,10 +12,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class AccountController // extends AnotherClass
 {
     /**
-     * @Route("/login", name="app_login")
+     * @Route("/account", name="app_account")
+     * @IsGranted("ROLE_USER")
      */
-    public function login()
+    public function account()
     {
-        die('hello');
+        die('die(account method)');
     }
 }
