@@ -2,11 +2,23 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\User;
+use App\Form\UserRegistrationFormType;
+use App\Security\LoginFormAuthenticator;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+
+/**
+ *
+ * Register, Login, logout.
+ */
 class SecurityController extends AbstractController
 {
     /**
@@ -32,5 +44,33 @@ class SecurityController extends AbstractController
     public function logout()
     {
         throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
+    }
+
+    /**
+     * @Route("/register", name="app_register")
+     */
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $formAuthenticator)
+    {
+        $form = $this->createForm(UserRegistrationFormType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            /** @var User $user **/
+            $user = $form->getData();
+            $user->setEmail($user->getEmail());
+            $user->setPassword($passwordEncoder->encodePassword($user, $user->getPassword()));
+            $user->setFirstName('John');
+            $user->setLastName('Smith');
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+        // return $this->redirectToRoute('app_homepage');
+        return $guardHandler->authenticateUserAndHandleSuccess($user,$request,$formAuthenticator,'main');
+        }
+
+        return $this->render('security/register.html.twig',[
+            'registerForm' => $form->createView()
+        ]);
     }
 }

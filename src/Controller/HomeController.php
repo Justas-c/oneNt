@@ -12,12 +12,12 @@ use Symfony\Component\HttpFoundation\Response;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="app_homepage")
      */
      public function homepage()
      {
          return $this->render('home_tmpl/homepage.html.twig');
-         
+
      }
 
      /**
