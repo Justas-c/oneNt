@@ -51,9 +51,11 @@ class SecurityController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $formAuthenticator)
     {
+        // create form:
         $form = $this->createForm(UserRegistrationFormType::class);
         $form->handleRequest($request);
 
+        // on submit:
         if ($form->isSubmitted() && $form->isValid()){
             /** @var User $user **/
             $user = $form->getData();
