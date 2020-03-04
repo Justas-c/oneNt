@@ -1,0 +1,31 @@
+<!-- if not authecticade display login/singup -->
+{% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+    <nav class="navbar navbar-expand navbar-light">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_login')}}">Login</a>
+            </li>
+            <li class="nav-item">
+                <span class="nav-link px-0">|</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_register')}}">SignUp</a>
+            </li>
+        </ul>
+    </nav>
+{% else %}
+<!-- if authenticated display name/logout -->
+    <nav class="navbar navbar-expand navbar-light">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                {{ 'logged in: ' ~ app.user.firstname }}
+            </li>
+            <li class="nav-item">
+                <span class="px-1"> | </span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link p-0" href="{{ path('app_logout')}}">logout</a>
+            </li>
+        </ul>
+    </nav>
+{% endif %}

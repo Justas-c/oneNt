@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %} Homepage {% endblock %}
-
+{% block body %}
 {% block header %}
 <!-- Login/Singup section -->
 <!-- <div class="container">
@@ -10,37 +10,9 @@
 <!-- test: -->
 
 <!-- display login/sign options -->
-{% if not is_granted('IS_AUTHENTICATED_FULLY') %}
-    <nav class="navbar navbar-expand navbar-light">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_login')}}">Login</a>
-            </li>
-            <li class="nav-item">
-                <span class="nav-link px-0">|</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_register')}}">SignUp</a>
-            </li>
-        </ul>
-    </nav>
-{% else %}
-    <nav class="navbar navbar-expand navbar-light">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                {{ 'logged in: ' ~ app.user.firstname }}
-            </li>
-            <li class="nav-item">
-                <span class="px-1"> | </span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link p-0" href="{{ path('app_logout')}}">logout</a>
-            </li>
-        </ul>
-    </nav>
-{% endif %}
+{% include 'headfoot/login_nav.html.twig' %}
 
-<nav class="navbar navbar-light bg-light">
+<!-- <nav class="navbar navbar-light bg-light">
     <ul class="navbar-nav">
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -55,16 +27,24 @@
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li>
     </ul>
-</nav>
+</nav> -->
 
     <!-- </div>
   </div>
 </div> -->
-{% endblock %}
+{% endblock %} <!-- /header -->
 
+<!-- Content -->
 {% block Content %}
 {{ '<h2>homepage</h2>'}}
 <div class="">
 Content
 </div>
+{% endblock %}
+
+<!-- footer -->
+{% block footer %}
+{% include 'headfoot/footer.html.twig' %}
+{{ parent() }}
+{% endblock %}
 {% endblock %}
