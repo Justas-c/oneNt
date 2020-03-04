@@ -55,21 +55,30 @@ class SecurityController extends AbstractController
         $form = $this->createForm(UserRegistrationFormType::class);
         $form->handleRequest($request);
 
+        // // if invalid
+        // if ($form->isSubmitted() && !$form->isValid()){
+        //     die('form not valid');
+        // }
+
         // on submit:
         if ($form->isSubmitted() && $form->isValid()){
             /** @var User $user **/
             $user = $form->getData();
             $user->setEmail($user->getEmail());
             $user->setPassword($passwordEncoder->encodePassword($user, $user->getPassword()));
-            $user->setFirstName('John');
-            $user->setLastName('Smith');
+            $user->setFirstName('vardas');
+            $user->setLastName('Pavarde');
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
 
         // return $this->redirectToRoute('app_homepage');
-        return $guardHandler->authenticateUserAndHandleSuccess($user,$request,$formAuthenticator,'main');
+        return $guardHandler->authenticateUserAndHandleSuccess($user, $request, $formAuthenticator,'main');
         }
+        // // forma:
+        // $ffform = $form->createView();
+        // dump($ffform);
+        // die();
 
         return $this->render('security/register.html.twig',[
             'registerForm' => $form->createView()

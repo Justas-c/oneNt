@@ -1,9 +1,23 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
-    <h2>Register: </h2>
-    {{ form_start(registerForm)}}
+<!-- layout divs: -->
+<div class="container">
+<div class="row">
+<div class="col-md-5"> <!-- col-md-5 --> </div>
+<div class="col-md-3">
+<!-- test: -->
+
+<!-- form -->
+    <pre>{% dump(registerForm) %}</pre>
+    <h1 class="h3 mb-3 font-weight-normal">Register:</h1>
+    {{ form_start(registerForm) }}
+    {{ form_row(registerForm.email, {'label' :  'Email:'}) }}
     {{ form_widget(registerForm)}}
     <button type="submit" class="btn btn-primary">Submit</button>
     {{form_end(registerForm)}}
-    {% endblock %}
+
+</div> <!-- col-md-3 -->
+</div> <!-- /row -->
+</div> <!-- /container -->
+
+{% endblock %}
