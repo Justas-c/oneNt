@@ -1,6 +1,6 @@
 <!-- if not authecticade display login/singup -->
 {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
-    <nav class="navbar navbar-expand navbar-light">
+    <nav class="navbar navbar-expand navbar-light py-0">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('app_login')}}">Login</a>
