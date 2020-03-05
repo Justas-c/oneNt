@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block title %} Homepage {% endblock %}
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('/css/slideshow-style.css') }}">
+{% endblock %}
 {% block body %}
 {% block header %}
     <!-- display login/sign options -->
@@ -9,8 +13,7 @@
 <!-- Content -->
 {% block Content %}
 {% include 'headfoot/header_img.html.twig' %}
-
-
+{% include 'home_tmpl/homepage_nav.html.twig' %}
     <!-- {# '<h2>homepage</h2>'#}
     <div class="">
         Content

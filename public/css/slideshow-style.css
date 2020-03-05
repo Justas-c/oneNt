@@ -1,36 +1,10 @@
-.test1 {
-    background-color: silver;
-}
-.test2 {
-    background-color: gray;
-}
-.test3 {
-    background-color: #505050;
-}
-.test4 {
-    background-color: #383838;
-}
-
-.light-link{
-    color: white;
-}
-
-#footer-img {
-    height: 270px !important;
-    background: url("../images/appImgs/homepage-img/footer-img1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-/* main page slideshow style */
 /* Slideshow container */
 .slideshow-container {
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
-  height: 600px;
+  height: 200px;
 }
 
 img.absolutew100 {
@@ -141,12 +115,12 @@ img.absolutew100 {
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .4}
   to {opacity: 1}
 }
 
 @keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .4}
   to {opacity: 1}
 }
 
@@ -155,50 +129,27 @@ img.absolutew100 {
   .prev, .next,.text {font-size: 11px}
 }
 
-/* end of slidesow styles */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- /* Media Queries */
+                        /* Media Queries */
 
 /* Small devices (landscape phones, 576px and up) */
-/* @media (min-width: 576px) {
-    #footer-img img{
-        min-height: 100px;
+ @media (min-width: 576px) {
+     .slideshow-container {
+        height: 300px;
     }
-} */
+}
 
 /* Medium devices (tablets, 768px and up) */
-/* @media (min-width: 768px) {
-    #footer-img img{
-        min-height: 200px;
-    }
-} */
+ @media (min-width: 768px) {
+   .slideshow-container {
+       height: 450px;
+   }
+}
 
 /* Large devices (desktops, 992px and up) */
-/* @media (min-width: 992px) {
-    #footer-img img {
-        min-height: 300px;
-    }
-} */
-
-/* Extra large devices (large desktops, 1200px and up) */
-/* @media (min-width: 1200px) {
-    #footer-img img{
-        min-height: 400px;
-    }
-} */
+ @media (min-width: 992px) {
+   .slideshow-container {
+       min-height: 550px;
+   }
+}
