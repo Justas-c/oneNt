@@ -1,0 +1,115 @@
+<div class="container">
+<div class="row">
+<div class="col">
+
+<!-- Main Nav -->
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <a class="navbar-brand" href="#"> <img src="{{ asset('images/appImgs/homepage-img/logo-large.jpg') }}" width="auto" height="125" alt="logo"> </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#NavbarSupportedContent" aria-controls="homeNavbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="NavbarSupportedContent">
+    <ul class="navbar-nav mr-auto" id="NavbarUl" style="font-size: 1.15rem">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  href="#">Nauji Projektai</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Skelbimai
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Butai</a>
+          <a class="dropdown-item" href="#">Namai</a>
+          <a class="dropdown-item" href="#">Sklypai</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Nt Naujienos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Kiti Pasiūlimai</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<hr>
+
+                                <!-- Search nav -->
+
+<form class="form my-2 py-2">
+    <div class="row"><div class="col-sm-12 col-lg-8 px-1 px-md-2">
+        <input class="form-control mb-2" type="search" placeholder="Paieška" aria-label="Search">
+    </div></div>
+    <div class="row">
+        <div class="col-sm-4 col-md-3 col-lg-2 p-sm-1 my-1 px-md-2">
+            <select class="custom-select custom-select-sm">
+              <option selected>Nt tipas</option>
+              <option value="1">Butai</option>
+              <option value="2">Namai</option>
+              <option value="3">Sklypai</option>
+              <option value="3">kita</option>
+            </select>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2 p-sm-1 my-1 px-md-2">
+            <select class="custom-select custom-select-sm">
+              <option selected>Plotas, <span> &#13217;  </span> </option>
+              <option value="1">0 - 50m</option>
+              <option value="2">50 - 75m</option>
+              <option value="3">75 - 100m</option>
+              <option value="3">100 - 500m</option>
+            </select>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2 p-sm-1 my-1 px-md-2">
+            <select class="custom-select custom-select-sm">
+              <option selected>kambariu skaicius</option>
+              <option value="1">Uno</option>
+              <option value="2">Dos</option>
+              <option value="3">tres</option>
+            </select>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-2 p-sm-1 my-1 px-md-2">
+            <select class="custom-select custom-select-sm">
+              <option selected>Apdaila</option>
+              <option value="1">Pilna</option>
+              <option value="2">Dalinė</option>
+              <option value="3">Neįrengtas</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5 col-md-3 col-md-3 p-sm-1 my-1 px-md-2">
+            <select class="custom-select custom-select-sm">
+              <option selected>Miestas</option>
+              <option value="1">Vilnius</option>
+              <option value="2">Kaunas</option>
+              <option value="3">Tauragė</option>
+            </select>
+        </div>
+        <div class="col-sm-5 col-md-3 col-md-3 p-sm-1 my-1 px-md-2">
+            <select class="custom-select custom-select-sm">
+              <option selected>Rajonas(reiks js)</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+        </div>
+    </div>
+</form>
+
+<div class="row"><div class="col">
+    <button class="btn btn-outline-success mt-2 col-sm-12 col-md-3" id="mainpage-search" type="submit">Search</button>
+</div></div>
+<hr>
+
+
+
+
+
+
+</div> <!-- /container -->
+</div> <!-- /row -->
+</div> <!-- /col -->

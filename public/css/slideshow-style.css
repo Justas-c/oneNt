@@ -10,10 +10,6 @@
 img.absolutew100 {
 	width: 100%;
     position: absolute;
-    top: -9999px;
-    bottom: -9999px;
-    left: -9999px;
-    right: -9999px;
     margin: auto;
 }
 /* Next & previous buttons */
@@ -144,6 +140,9 @@ img.absolutew100 {
  @media (min-width: 768px) {
    .slideshow-container {
        height: 450px;
+    #mainpage-search{
+
+    }
    }
 }
 

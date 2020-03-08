@@ -1,3 +1,9 @@
+<style media="screen">
+    .dropdown-item:hover {
+        text-decoration: underline;
+    }
+</style>
+
 <!-- if not authecticade display login/singup -->
 {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
     <nav class="navbar navbar-expand navbar-light py-0">
@@ -15,17 +21,25 @@
     </nav>
 {% else %}
 <!-- if authenticated display name/logout -->
-    <nav class="navbar navbar-expand navbar-light">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                {{ 'logged in: ' ~ app.user.firstname }}
-            </li>
-            <li class="nav-item">
-                <span class="px-1"> | </span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link p-0" href="{{ path('app_logout')}}">logout</a>
-            </li>
-        </ul>
-    </nav>
-{% endif %}
+<nav class="navbar navbar-expand navbar-light">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            {{ 'logged in: ' ~ app.user.firstname }}
+        </li>
+        <li class="nav-item">
+            <span class="px-1"> | </span>
+        </li>
+        <li class="nav-item dropdown" style="">
+          <a class="nav-link dropdown-toggle pt-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            meniu
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="">
+            <!-- <a class="dropdown-item" href="#">1</a> -->
+            <a class="dropdown-item" href="#">įdėti skelbimą</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ path('app_logout')}}">Logout</a>
+          </div>
+        </li>
+    </ul>
+</nav>
+{% endif %}  
