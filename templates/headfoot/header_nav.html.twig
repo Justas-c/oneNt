@@ -2,7 +2,7 @@
 <div class="row">
 <div class="col">
 
-<!-- Main Nav -->
+                            <!-- Main Nav -->
 <nav class="navbar navbar-expand-md navbar-light bg-light pt-0">
   <a class="navbar-brand" href="/"> <img src="{{ asset('images/appImgs/homepage-img/logo-large2.jpg') }}" width="auto" height="85" alt="logo"> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#NavbarSupportedContent" aria-controls="homeNavbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +33,9 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Kiti Pasiūlimai</a>
       </li>
-
+      <li class="nav-item mt-1" style="font-size: 0.8rem">
+          {% include('headfoot/login_nav.html.twig') %}
+      </li>
     </ul>
   </div>
 </nav>
@@ -106,9 +108,6 @@
 </div> <!-- /container -->
 </div> <!-- /row -->
 </div> <!-- /col -->
-<div id="testelem1">
-1
-</div>
 
 <!-- add functionality and event listeners -->
 <script src="/js/main_navbar_search.js"></script>

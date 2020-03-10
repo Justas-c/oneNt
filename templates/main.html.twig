@@ -4,16 +4,31 @@
 {% endblock %}
 {% block header %}
 {% include('headfoot/header_nav.html.twig') %}
-{{ 'hellllo '}}
 {% endblock %}
 
 {% block body %}
     {{ parent() }}
 {% endblock %}
 
+
+{% block Content %}
+    <!-- main alignment -->
+    <div class="container"><div class="row"><div class="col">
+        kontentas
+
+    </div></div></div> <!-- /container,row,col -->
+{% endblock %}
+
+
+
 {% block javascripts %}
     {{ parent() }}
     <!-- Ajax javascript search: -->
     <!-- <script src="{# asset('js/main_navbar_search.js') #}"></script>  -->
-
+{% endblock %}
+{% block footer %}
+    {{ parent() }}
+    <div class="container"><div class="row"><div class="col">
+    {% include 'headfoot/footer.html.twig' %}
+    </div></div></div> <!-- /container,row,col -->
 {% endblock %}
