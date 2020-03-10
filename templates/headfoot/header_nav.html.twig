@@ -3,8 +3,8 @@
 <div class="col">
 
 <!-- Main Nav -->
-<nav class="navbar navbar-expand-md navbar-light bg-light">
-  <a class="navbar-brand" href="#"> <img src="{{ asset('images/appImgs/homepage-img/logo-large.jpg') }}" width="auto" height="125" alt="logo"> </a>
+<nav class="navbar navbar-expand-md navbar-light bg-light pt-0">
+  <a class="navbar-brand" href="/"> <img src="{{ asset('images/appImgs/homepage-img/logo-large2.jpg') }}" width="auto" height="85" alt="logo"> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#NavbarSupportedContent" aria-controls="homeNavbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -18,13 +18,13 @@
         <a class="nav-link"  href="#">Nauji Projektai</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown01" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Skelbimai
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Butai</a>
-          <a class="dropdown-item" href="#">Namai</a>
-          <a class="dropdown-item" href="#">Sklypai</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown01">
+          <a class="dropdown-item" href="/find-property-Butai/">Butai</a>
+          <a class="dropdown-item" href="/find-property-Namai/">Namai</a>
+          <a class="dropdown-item" href="/find-property-Sklypai/">Sklypai</a>
         </div>
       </li>
       <li class="nav-item">
@@ -33,6 +33,7 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Kiti Pasiūlimai</a>
       </li>
+
     </ul>
   </div>
 </nav>
@@ -48,10 +49,11 @@
         <div class="col-sm-4 col-md-3 col-lg-2 p-sm-1 my-1 px-md-2">
             <select class="custom-select custom-select-sm">
               <option selected>Nt tipas</option>
-              <option value="1">Butai</option>
-              <option value="2">Namai</option>
-              <option value="3">Sklypai</option>
-              <option value="3">kita</option>
+              <!-- cia loop galima parasyt -->
+              <option value="1" {% if tipas == 'Butai' %} selected {% endif %}>Butai</option>
+              <option value="2" {% if tipas == 'Namai' %} selected {% endif %}>Namai</option>
+              <option value="3" {% if tipas == 'Sklypai' %} selected {% endif %}>Sklypai</option>
+              <option value="3" {% if tipas == 'kita' %} selected {% endif %}>kita</option>
             </select>
         </div>
         <div class="col-sm-4 col-md-3 col-lg-2 p-sm-1 my-1 px-md-2">
@@ -82,19 +84,16 @@
     </div>
     <div class="row">
         <div class="col-sm-5 col-md-3 col-md-3 p-sm-1 my-1 px-md-2">
-            <select class="custom-select custom-select-sm">
-              <option selected>Miestas</option>
-              <option value="1">Vilnius</option>
-              <option value="2">Kaunas</option>
-              <option value="3">Tauragė</option>
+            <select class="custom-select custom-select-sm" id="mainNavCity">
+              <option>Miestas</option>
+              <option value="Vilnius">Vilnius</option>
+              <option value="Kaunas">Kaunas</option>
+              <option value="Tauragė">Tauragė</option>
             </select>
         </div>
         <div class="col-sm-5 col-md-3 col-md-3 p-sm-1 my-1 px-md-2">
-            <select class="custom-select custom-select-sm">
-              <option selected>Rajonas(reiks js)</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select class="custom-select custom-select-sm" id="mainNavRajon">
+                <option selected>Rajonas</option>
             </select>
         </div>
     </div>
@@ -104,12 +103,12 @@
     <button class="btn btn-outline-success mt-2 col-sm-12 col-md-3" id="mainpage-search" type="submit">Search</button>
 </div></div>
 <hr>
-
-
-
-
-
-
 </div> <!-- /container -->
 </div> <!-- /row -->
 </div> <!-- /col -->
+<div id="testelem1">
+1
+</div>
+
+<!-- add functionality and event listeners -->
+<script src="/js/main_navbar_search.js"></script>

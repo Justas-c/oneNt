@@ -6,3 +6,14 @@
 {% include('headfoot/header_nav.html.twig') %}
 {{ 'hellllo '}}
 {% endblock %}
+
+{% block body %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <!-- Ajax javascript search: -->
+    <!-- <script src="{# asset('js/main_navbar_search.js') #}"></script>  -->
+
+{% endblock %}

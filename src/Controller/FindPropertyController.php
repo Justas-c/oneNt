@@ -14,6 +14,6 @@ class FindPropertyController extends AbstractController
      */
     public function main($type)
     {
-        return $this->render('main.html.twig');
+        return $this->render('main.html.twig', ['tipas' => $type]);
     }
 }
