@@ -57,9 +57,9 @@ class Property
     private $content;
 
     /**
-     * @ORM\Column(type="array", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $nuotraukos = [];
+    private $nuotraukos = ;
 
     public function getId(): ?int
     {
@@ -162,12 +162,12 @@ class Property
         return $this;
     }
 
-    public function getNuotraukos(): ?array
+    public function getNuotraukos(): ?string
     {
         return $this->nuotraukos;
     }
 
-    public function setNuotraukos(?array $nuotraukos): self
+    public function setNuotraukos(?string $nuotraukos): self
     {
         $this->nuotraukos = $nuotraukos;
 

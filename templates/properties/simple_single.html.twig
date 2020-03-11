@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+{{ 'title' }}
+{% endblock %}
+{% block header %}
+{% include('headfoot/header_nav.html.twig') %}
+{% endblock %}
+
+{% block body %}
+    {# info(single property obj) #}
+    {{ dump(property) }}
+    {{ parent() }}
+{% endblock %}
+
+
+{% block Content %}
+
+    <!-- main alignment -->
+    <div class="container"><div class="row"><div class="col">
+
+        <!-- col-8 main  -->
+        <div class="row"> <div class="col-8">
+            <!-- Visa property info paeiliui, galima aisku buvo ir loop rasyt... -->
+            <div class="row"><div class="col">
+                pavadinimas
+            </div></div>
+            <div class="row"><div class="col">
+                <img src="" alt="cia bus foto slideshow">
+            </div></div>
+            <div class="row"><div class="col">
+
+                <span> {{ 'Gatvė: '}} </span> {{ property.gatve}}
+            </div></div>
+            <div class="row"><div class="col">
+                <span> {{ 'Plotas: '}} </span> {{ property.plotas}}
+            </div></div>
+            <div class="row"><div class="col">
+                <span> {{ 'Kambariu skaičius: '}} </span> {{ property.kambariuSkaicius}}
+            </div></div>
+            <div class="row"><div class="col">
+                <span> {{ 'Aukštas: '}} </span> {{ property.aukstas}}
+            </div></div>
+            <div class="row"><div class="col">
+                <span> {{'Įrengimas:'}} </span> {{ property.irengimas}}
+            </div></div>
+            <div class="row"><div class="col">
+                <span> {{ 'Kaina: '}} </span> €
+            </div></div>
+            <hr>
+            <div class="row"><div class="col">
+                <span> {{ 'Aprašymas'}} </span> €
+            </div></div>
+        </div>
+
+        <!-- col-4 for ad banners -->
+        <div class="col-md-4">
+            col-4 sidebar
+        </div></div>
+
+
+    </div></div></div> <!-- /container,row,col -->
+{% endblock %}
+
+{% block footer %}
+    {{ parent() }}
+    <div class="container"><div class="row"><div class="col">
+    {% include 'headfoot/footer.html.twig' %}
+    </div></div></div> <!-- /container,row,col -->
+{% endblock %}
