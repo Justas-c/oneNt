@@ -25,4 +25,13 @@
     <div class="container"><div class="row"><div class="col">
     {% include 'headfoot/footer.html.twig' %}
     </div></div></div> <!-- /container,row,col -->
+
+    <!-- script for fixing bootstrap bug - upload show filename in the form field  -->
+    <script>
+        $('.custom-file input').change(function (e) {
+            if (e.target.files.length) {
+                $(this).next('.custom-file-label').html(e.target.files[0].name);
+            }
+        });
+    </script>
 {% endblock %}

@@ -38,13 +38,36 @@ class AccountController extends AbstractController
             // creates Property obj with posted as properties
             $postedPropertyData = $form->getData();
 
+            $file = $form->get('nuotraukos')->getData();
+            $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $newFilename = $originalFilename.'-'.uniqid().'.'.$file->guessExtension();
+
+            // Move the file to the directory where images are stored
+            try {
+                $file->move($this->getParameter('images_directory'), $newFilename);
+            } catch (FileException $e) {
+                dd('try again');
+                // ... handle exception if something happens during file upload
+            }
+
+            // image name
+            $postedPropertyData->setNuotraukos($newFilename);
+
+            // info
+            dump($request);
+            dump($originalFilename);
+            dump($newFilename);
+            //dd($file);
+
             // persist and flush posted object
             $em->persist($postedPropertyData);
             $em->flush();
 
-            // TODO: add flash message
-            $this->addFlash('success', 'Jusu skelbimas ikeltas');
-            return $this->redirectToRoute('app_homepage');
+            // flash message
+            $this->addFlash('success', 'Jūsų skelbimas įkeltas');
+
+             return $this->redirectToRoute('app_find_single_property', ['id' => $postedPropertyData->getId()]);
+            //return $this->redirectToRoute('app_homepage');
         }
 
         return $this->render('account/add_property_form.html.twig', ['addPropertyForm' => $form->createView()]);

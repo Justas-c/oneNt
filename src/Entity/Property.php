@@ -59,7 +59,7 @@ class Property
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $nuotraukos = ;
+    private $nuotraukos;
 
     public function getId(): ?int
     {

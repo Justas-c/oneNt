@@ -6,7 +6,9 @@ use App\Entity\Property;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+// for file uploading:
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class AddPropertyFormType extends AbstractType
 {
@@ -21,7 +23,10 @@ class AddPropertyFormType extends AbstractType
             ->add('aukstas')
             ->add('irengimas')
             ->add('content')
-            ->add('nuotraukos')
+            ->add('nuotraukos', FileType::class, [
+                'label' => 'upload images:' //,
+                //'multiple' => true
+            ])
             ->add('save', SubmitType::class, ['label' => 'įkelti'])
         ;
     }
