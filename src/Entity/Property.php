@@ -57,11 +57,6 @@ class Property
     private $content;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $plotes;
-
-    /**
      * @ORM\Column(type="array", nullable=true)
      */
     private $nuotraukos = [];
@@ -163,18 +158,6 @@ class Property
     public function setContent(?string $content): self
     {
         $this->content = $content;
-
-        return $this;
-    }
-
-    public function getPlotes(): ?string
-    {
-        return $this->plotes;
-    }
-
-    public function setPlotes(?string $plotes): self
-    {
-        $this->plotes = $plotes;
 
         return $this;
     }

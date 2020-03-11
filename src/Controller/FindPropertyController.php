@@ -16,4 +16,13 @@ class FindPropertyController extends AbstractController
     {
         return $this->render('main.html.twig', ['tipas' => $type]);
     }
+
+    /**
+     * Gets single property
+     * @Route('individual-property-{id}', name="app_single_property")
+     */
+    public function singleProperty($id)
+    {
+        return $this->render('single.html.twig', ['id' => $id]);
+    }
 }

@@ -14,6 +14,17 @@
 <!-- Body -->
 <body>
 
+{# info: #}
+{{ dump(app) }}
+
+{# flash messages(success only for now) #}
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+
+
 {% block body %}
     {% block header %}
         <!-- HEADER --> header(base)

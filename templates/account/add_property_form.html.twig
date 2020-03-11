@@ -1,0 +1,28 @@
+{# header #}
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'add property' }}{% endblock %}
+{% block header %}{% include('headfoot/header_nav.html.twig') %}{% endblock %}
+
+
+
+{% block Content %}
+<div class="container"><div class="row"><div class="col-md-8">
+    {# form(addPropertyForm) #}
+
+    {{ form_start(addPropertyForm) }}
+    {{ form_errors(addPropertyForm) }}
+    {{ form_end(addPropertyForm) }}
+
+    <!-- <button class="btn btn-success my-2 mb-5" type="submit">Sukurti</button> -->
+</div></div></div>
+{% endblock %}
+
+
+
+{# footer #}
+{% block footer %}
+    {{ parent() }}
+    <div class="container"><div class="row"><div class="col">
+    {% include 'headfoot/footer.html.twig' %}
+    </div></div></div> <!-- /container,row,col -->
+{% endblock %}
