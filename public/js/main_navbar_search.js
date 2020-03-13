@@ -28,3 +28,12 @@ function rajonSelect(){
 
 // add event listener
 document.getElementById('mainNavCity').addEventListener('change', rajonSelect);
+//----------------------------------------------------------------------------//
+
+// navbar search implentation
+document.getElementById('mainpage-search').addEventListener('click', searchClick);
+
+function searchClick() {
+    console.log('click');
+    alert('clicked button alert');
+}

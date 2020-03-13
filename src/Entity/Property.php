@@ -56,6 +56,17 @@ class Property
      */
     private $content;
 
+     /**
+      * @ORM\Column(type="integer", nullable=true)
+      */
+    private $kaina;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=false)
+     */
+    private $type;
+
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -150,6 +161,18 @@ class Property
         return $this;
     }
 
+    public function getKaina(): ?string
+    {
+        return $this->kaina;
+    }
+
+    public function setKaina(?string $kaina): self
+    {
+        $this->irengimas = $kaina;
+
+        return $this;
+    }
+
     public function getContent(): ?string
     {
         return $this->content;
@@ -173,4 +196,18 @@ class Property
 
         return $this;
     }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+
 }

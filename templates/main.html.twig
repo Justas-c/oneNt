@@ -8,16 +8,46 @@
 {% endblock %}
 
 {% block body %}
+    {{ dump(properties)}}
     {{ parent() }}
 {% endblock %}
 
 
 {% block Content %}
     <!-- main alignment -->
-    <div class="container"><div class="row"><div class="col">
-        kontentas
+    <div class="container"><div class="row">
+        {% for property in properties %}
+        <div class="col-12 col-md-4 ">
+            <div class="card my-3 mx-1">
+            <a href="/individual-property-{{ property.id }}">
+                <img class="card-img-top card-img" src="/images/uploads/{{ property.nuotraukos }}" alt="Card image cap">
+            </a>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 p-1">
+                            <span class=""> {{property.gatve ~ ', ' ~ property.miestas }} </span>
+                        </div>
+                        <div class="col-3 p-1">
+                            <span class="sp-main-params"> {{property.plotas ~ ' m²'}}</span>
+                        </div>
+                        <div class="col-4 p-1">
+                            <span class="sp-main-params"> {{property.kambariuSkaicius ~ ' - kamb'}}</span>
+                        </div>
+                        <div class="col-4 p-1">
+                            <span class="sp-main-params">{{'€ ' ~ property.kaina}}</span>
+                        </div>
 
-    </div></div></div> <!-- /container,row,col -->
+                    </div>
+                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+            </div>
+        </div>
+
+        <!-- <img class="dsp-properties-img" src="/images/uploads/{# property.nuotraukos #}" alt="foto">
+        <p> images/uploads/{# property.nuotraukos #}</p> -->
+        </div>
+        {% endfor %}
+
+    </div></div> <!-- /container,row -->
 {% endblock %}
 
 

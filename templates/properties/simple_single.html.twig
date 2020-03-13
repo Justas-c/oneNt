@@ -21,40 +21,69 @@
         <!-- col-8 main  -->
         <div class="row"> <div class="col-8">
             <!-- Visa property info paeiliui, galima aisku buvo ir loop rasyt... -->
-            <div class="row"><div class="col">
+            <!-- <div class="row"><div class="col">
                 pavadinimas
-            </div></div>
+            </div></div> -->
             <div class="row"><div class="col">
-                <img style="width: 100%" src="/images/uploads/{{ property.nuotraukos }}" alt="cia bus foto slideshow">
+                <img class="sp-property-main-img m-2" src="/images/uploads/{{ property.nuotraukos }}" alt="cia bus foto slideshow">
             </div></div>
-            <div class="row"><div class="col">
-
-                <span> {{ 'Gatvė: '}} </span> {{ property.gatve}}
-            </div></div>
-            <div class="row"><div class="col">
-                <span> {{ 'Plotas: '}} </span> {{ property.plotas}}
-            </div></div>
-            <div class="row"><div class="col">
-                <span> {{ 'Kambariu skaičius: '}} </span> {{ property.kambariuSkaicius}}
-            </div></div>
-            <div class="row"><div class="col">
-                <span> {{ 'Aukštas: '}} </span> {{ property.aukstas}}
-            </div></div>
-            <div class="row"><div class="col">
-                <span> {{'Įrengimas:'}} </span> {{ property.irengimas}}
-            </div></div>
-            <div class="row"><div class="col">
-                <span> {{ 'Kaina: '}} </span> €
-            </div></div>
+            <div class="row my-1">
+                <div class="col-4">
+                    <span class="sp-main-params col-4"> {{ 'Gatvė: '}} </span>
+                </div>
+                <div class="col-4">
+                    {{ property.gatve}}
+                </div>
+            </div>
+            <div class="row my-1">
+                <div class="col-4">
+                    <span class="sp-main-params col-4"> {{ 'Plotas: '}} </span>
+                </div>
+                <div class="col-4">
+                    {{ property.plotas}}
+                </div>
+            </div>
+            <div class="row my-1">
+                <div class="col-4">
+                    <span class="sp-main-params col-4"> {{ 'Kambariu skaičius: '}} </span>
+                </div>
+                <div class="col-4">
+                    {{ property.kambariuSkaicius}}
+                </div>
+            </div>
+            <div class="row my-1">
+                <div class="col-4">
+                    <span class="sp-main-params col-4"> {{ 'Aukštas: '}} </span>
+                </div>
+                <div class="col-4">
+                    {{ property.aukstas }}
+                </div>
+            </div>
+            <div class="row my-1">
+                <div class="col-4">
+                    <span class="sp-main-params col-4"> {{ 'Įrengimas: '}} </span>
+                </div>
+                <div class="col-4">
+                    {{ property.irengimas}}
+                </div>
+            </div>
+            <div class="row my-1">
+                <div class="col-4">
+                    <span class="sp-main-params col-4"> {{ 'Kaina: '}} </span>
+                </div>
+                <div class="col-4">
+                € &nbsp{{ property.kaina }}
+                </div>
+            </div>
             <hr>
-            <div class="row"><div class="col">
-                <span> {{ 'Aprašymas'}} </span> €
+            <div class="row mb-5"><div class="col">
+                <span class="col-4 my-text-content"> {{ property.content }} </span>
             </div></div>
         </div>
 
         <!-- col-4 for ad banners -->
         <div class="col-md-4">
-            col-4 sidebar
+            <!-- col-4 sidebar -->
         </div></div>
 
 

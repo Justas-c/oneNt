@@ -46,7 +46,7 @@ class AccountController extends AbstractController
             try {
                 $file->move($this->getParameter('images_directory'), $newFilename);
             } catch (FileException $e) {
-                dd('try again');
+                //add flash,  redirect to formpage
                 // ... handle exception if something happens during file upload
             }
 
@@ -57,7 +57,8 @@ class AccountController extends AbstractController
             dump($request);
             dump($originalFilename);
             dump($newFilename);
-            //dd($file);
+            //dd($postedPropertyData);
+
 
             // persist and flush posted object
             $em->persist($postedPropertyData);

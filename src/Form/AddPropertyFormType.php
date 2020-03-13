@@ -7,8 +7,10 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 // for file uploading:
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+// for form types:
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class AddPropertyFormType extends AbstractType
 {
@@ -17,12 +19,20 @@ class AddPropertyFormType extends AbstractType
         $builder
             ->add('gatve')
             ->add('plotas')
+            ->add('type', ChoiceType::Class, [
+                'choices' => [
+                    'butas' => 'butai',
+                    'namas' => 'namai',
+                    'sklypas' => 'sklypai'
+                    ]
+                ])
             ->add('kambariuSkaicius')
             ->add('miestas')
             ->add('butonr')
             ->add('aukstas')
             ->add('irengimas')
             ->add('content')
+            ->add('kaina')
             ->add('nuotraukos', FileType::class, [
                 'label' => 'upload images:' //,
                 //'multiple' => true

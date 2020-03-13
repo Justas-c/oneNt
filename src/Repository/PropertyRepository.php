@@ -20,6 +20,35 @@ class PropertyRepository extends ServiceEntityRepository
     }
 
     // /**
+    //  * @return Properties[]
+    //  */
+    //  public function findPropertiesByType($type): array
+    //  {
+    //      $em = $this->getEntityManger();
+    //      dd($em);
+    //
+    //  }
+    //
+    // // example:
+    // /**
+    //  * @return Product[]
+    //  */
+    // public function findAllGreaterThanPrice($price): array
+    // {
+    //     $entityManager = $this->getEntityManager();
+    //
+    //     $query = $entityManager->createQuery(
+    //         'SELECT p
+    //         FROM App\Entity\Product p
+    //         WHERE p.price > :price
+    //         ORDER BY p.price ASC'
+    //     )->setParameter('price', $price);
+    //
+    //     // returns an array of Product objects
+    //     return $query->getResult();
+    // }
+
+    // /**
     //  * @return Property[] Returns an array of Property objects
     //  */
     /*
