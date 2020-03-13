@@ -1,0 +1,26 @@
+{% extends 'mainbase.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/css/nauji-projektai.css">
+{% endblock %}
+
+{% block Content %}
+    <div class="container"><div class="row"><div class="col">
+        <!-- TODO: pataisyt src -->
+        <img class="np-main-img" src="/images/nauji_projektai/sileliu_slenis/{{ project.mainimg }}" alt="">
+        <hr>
+        img gallery - coming soon
+        <hr>
+    <div class="row"><div class="col my-2">
+        <h2> {{project.pavadinimas }} </h2>
+        <h6 style="color: gray"> {{ project.intro }} </h6>
+        <div class=""><b> {{ project.adresas }} </b></div>
+        <div style="font-size: 10px; color: gray">Plotas:</div>
+        {{ project.plotas ~ 'm²' }}
+        <hr>
+        <p>{{ project.aprasymas }}</p>
+        <div class="">kita info: ...</div>
+    </div></div>
+
+</div></div></div> <!-- /container/row/col -->
+{% endblock %}

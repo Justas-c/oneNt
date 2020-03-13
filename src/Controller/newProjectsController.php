@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\NewProject;
 
 /**
  * Nauji projektai
@@ -21,8 +22,10 @@ class newProjectsController extends AbstractController
     /**
      * @Route("np/naujas-projektas-{id}", name="app_naujas_projektas")
      */
-    public function naujasProjektas($id)
+    public function naujasProjektas($id = 1)
     {
-        return $this->render('properties/nauji_projektai/naujas_projektas.html.twig');
+        $em = $this->getDoctrine()->getRepository(NewProject::class);
+        $ntProjektas = $em->find($id);
+        return $this->render('properties/nauji_projektai/naujas_projektas.html.twig', ['project' => $ntProjektas]);
     }
 }

@@ -1,12 +1,28 @@
 {% extends 'mainbase.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/css/nauji-projektai.css">
+{% endblock %}
 {% block title %}
 {{ 'new developments' }}
 {% endblock %}
 
 {% block Content %}
     <div class="container">
-        <div class="row"><div class="col">
-            <img class="sp-property-main-img " src="/images/nauji_projektai/sileliu_slenis/merko-bustas.jpg" alt="img">
-        </div></div>
-    </div>
+        <div class="row"><div class="col-xs-12 col-md-11 my-3">
+
+            <a href="/np/naujas-projektas-1" class="text-decoration-none">
+            <img class="np-main-img" src="/images/nauji_projektai/sileliu_slenis/mb2.jpg" alt="img">
+            <div class="card">
+                <div class="card-body">
+                     <h5 class="card-title">Vilnelės slėnis</h5>
+                     <h6> Kur miestas pasitinka gamtą!</h6>
+                     <p class="card-text"><b>Plotas: 66-99 m²</b></p>
+                </div>
+            </div>
+            </a>
+
+        </div></div> <!-- /row,col -->
+    </div> <!-- /container -->
+
 {% endblock %}

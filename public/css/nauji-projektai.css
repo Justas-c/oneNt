@@ -1,0 +1,11 @@
+/* Nauji projektai styles */
+
+.np-main-img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
