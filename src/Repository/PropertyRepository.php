@@ -19,6 +19,90 @@ class PropertyRepository extends ServiceEntityRepository
         parent::__construct($registry, Property::class);
     }
 
+    // public function findByParams($tipas, $plotas, $apdaila, $miestas, $rajonas, $kambariuSkaicius)
+    // {
+    //     return $this->createQueryBuilder('p')
+    //     ->andWhere('p.type = :val')
+    // }
+
+    public function findByOneParam($tipas)
+    {
+        return $this->createQueryBuilder('p')
+        ->andWhere('p.type = :tipas')
+        ->setParameter('tipas', $tipas)
+        ->getQuery()
+        ->getResult()
+        ;
+    }
+
+    public function findByParams($params)
+    {
+        $query = $this->createQueryBuilder('p');
+        dump($params);
+
+        foreach ($params as $key => $value) {
+            $query->andWhere('p.' . $key . ' = :' . $key);
+            $query->setParameter($key, $value);
+        }
+
+        $result = $query->getQuery()->getResult();
+        dd($result);
+        $query->getResult();
+        return $query;
+
+        //dd($query->getQuery());
+
+
+        // foreach ($params as $param) {
+        //     $query->andWhere('p.' . $param . )
+        // }
+        // ---------------------------------------From stack overflow
+        // $query = $em->createQuery('SELECT u FROM Users u WHERE u.id IN (:id)');
+        // $query->setParameter('id', array(1, 9));
+        // $users = $query->getResult();
+        // ------------------------------------------
+
+
+        // $query = $this->createQueryBuilder('p')
+        // ->andWhere('p.type = :tipas')
+        // ->andWhere('p.miestas = :miestas')
+        // ->setParameter('tipas', 'butai')
+        // ->setParameter('miestas', 'Vilnius')
+        // ->getQuery()
+        // ->getResult()
+        // ;
+        //
+        // dd($query->getQuery());
+        // return $query;
+
+        // return $this->createQueryBuilder('p')
+        // ->andWhere('p.type = :tipas')
+        // ->andWhere('p.miestas = :miestas')
+        // ->andWhere('p.irengimas = :apdaila')
+        // ->setParameter('tipas', $tipas)
+        // ->setParameter('miestas', $miestas)
+        // ->setParameter('apdaila', $apdaila)
+        // ->getQuery()
+        // ->getResult()
+        // ;
+    }
+
+    // public function findByExampleField($value)
+    // {
+    //     return $this->createQueryBuilder('p')
+    //         ->andWhere('p.exampleField = :val')
+    //         ->setParameter('val', $value)
+    //         ->orderBy('p.id', 'ASC')
+    //         ->setMaxResults(10)
+    //         ->getQuery()
+    //         ->getResult()
+    //     ;
+    // }
+
+
+
+
+
     // /**
     //  * @return Properties[]
     //  */

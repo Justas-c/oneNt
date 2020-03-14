@@ -29,7 +29,7 @@ class Property
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $kambariuSkaicius;
+    private $kambariu_skaicius;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -72,6 +72,11 @@ class Property
      */
     private $nuotraukos;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $rajonas;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,12 +108,12 @@ class Property
 
     public function getKambariuSkaicius(): ?int
     {
-        return $this->kambariuSkaicius;
+        return $this->kambariu_skaicius;
     }
 
-    public function setKambariuSkaicius(?int $kambariuSkaicius): self
+    public function setKambariuSkaicius(?int $kambariu_skaicius): self
     {
-        $this->kambariuSkaicius = $kambariuSkaicius;
+        $this->kambariu_skaicius = $kambariu_skaicius;
 
         return $this;
     }
@@ -205,6 +210,18 @@ class Property
     public function setType(?string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getRajonas(): ?string
+    {
+        return $this->rajonas;
+    }
+
+    public function setRajonas(?string $rajonas): self
+    {
+        $this->rajonas = $rajonas;
 
         return $this;
     }

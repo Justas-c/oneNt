@@ -16,6 +16,11 @@
 {% block Content %}
     <!-- main alignment -->
     <div class="container"><div class="row">
+        <!-- if not found -->
+            {% if properties|length == 0 %}
+                <div class="col mb-5">{{ 'skelbimų pagal esamus paieškos parametrus nerasta' }}</div>
+            {% endif %}
+        <!-- else: -->
         {% for property in properties %}
         <div class="col-12 col-md-4 ">
             <div class="card my-3 mx-1">

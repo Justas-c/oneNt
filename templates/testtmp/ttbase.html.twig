@@ -1,29 +1,6 @@
-<!-- 1 -->
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}
-        ttbase: base twig small text block
-        {% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
-
-
-
---------------------------------------------------------------------------------
-
-<!-- 2 -->
-
 {% extends 'base.html.twig' %}
 {% block title %}
-{{ 'new developments' }}
+{{ 'ttbase.html.twig' }}
 {% endblock %}
 {% block header %}
 {% include('headfoot/header_nav.html.twig') %}
