@@ -49,7 +49,7 @@ class Property
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $irengimas;
+    private $apdaila;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -154,14 +154,14 @@ class Property
         return $this;
     }
 
-    public function getIrengimas(): ?string
+    public function getapdaila(): ?string
     {
-        return $this->irengimas;
+        return $this->apdaila;
     }
 
-    public function setIrengimas(?string $irengimas): self
+    public function setapdaila(?string $apdaila): self
     {
-        $this->irengimas = $irengimas;
+        $this->apdaila = $apdaila;
 
         return $this;
     }
@@ -173,7 +173,7 @@ class Property
 
     public function setKaina(?string $kaina): self
     {
-        $this->irengimas = $kaina;
+        $this->apdaila = $kaina;
 
         return $this;
     }

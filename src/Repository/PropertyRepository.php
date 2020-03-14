@@ -38,7 +38,9 @@ class PropertyRepository extends ServiceEntityRepository
     public function findByParams($params)
     {
         $query = $this->createQueryBuilder('p');
-        dump($params);
+        //dump($params);
+
+        dd($params);
 
         foreach ($params as $key => $value) {
             $query->andWhere('p.' . $key . ' = :' . $key);
