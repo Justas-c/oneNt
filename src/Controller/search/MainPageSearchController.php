@@ -57,18 +57,29 @@ class MainPageSearchController extends AbstractController
         }
 
         // run query, get properties
-        $found_properties = $this->getDoctrine()->getRepository(Property::class)
+        $foundProperties = $this->getDoctrine()->getRepository(Property::class)
         ->findByParams($searchParams);
 
-        dd($found_properties);
+        //die('check');
+        dump($foundProperties);
+        $not_private_arr = [];
 
+        foreach ($foundProperties as $property) {
+            $not_private_arr[] = $property->getGatve();
+            $not_private_arr[] = $property->getPlotas();
+        }
+
+        $json_encoded_public = json_encode($not_private_arr);
+        dd($json_encoded_public);
+        die('gg');
+        //return $this->json(['foundProperties' => $foundProperties]);
 
 
         //test:
-        $qp1 = $request->query->get('type');
-        $qp2 = $request->query->get('apdaila');
-        $query_params = [$qp1, $qp2];
-
-        return $this->render('testtmp/testtwig.html.twig', ['qp' => $query_params]);
+        // $qp1 = $request->query->get('type');
+        // $qp2 = $request->query->get('apdaila');
+        // $query_params = [$qp1, $qp2];
+        //
+        // return $this->render('testtmp/testtwig.html.twig', ['qp' => $query_params]);
     }
 }

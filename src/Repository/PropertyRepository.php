@@ -19,12 +19,6 @@ class PropertyRepository extends ServiceEntityRepository
         parent::__construct($registry, Property::class);
     }
 
-    // public function findByParams($tipas, $plotas, $apdaila, $miestas, $rajonas, $kambariuSkaicius)
-    // {
-    //     return $this->createQueryBuilder('p')
-    //     ->andWhere('p.type = :val')
-    // }
-
     public function findByOneParam($tipas)
     {
         return $this->createQueryBuilder('p')
@@ -38,56 +32,62 @@ class PropertyRepository extends ServiceEntityRepository
     public function findByParams($params)
     {
         $query = $this->createQueryBuilder('p');
-        //dump($params);
-
-        dd($params);
-
         foreach ($params as $key => $value) {
-            $query->andWhere('p.' . $key . ' = :' . $key);
-            $query->setParameter($key, $value);
+            // TODO:
+            if ($key == 'plotas') {
+                // reik pagalvot
+
+            } else {
+                $query->andWhere('p.' . $key . ' = :' . $key);
+                $query->setParameter($key, $value);
+            }
         }
-
+        dump($query->getQuery());
         $result = $query->getQuery()->getResult();
-        dd($result);
-        $query->getResult();
-        return $query;
 
-        //dd($query->getQuery());
+        // /dd($result);
+        $jsonEncoded = json_encode($result);
+        dd($jsonEncoded);
 
-
-        // foreach ($params as $param) {
-        //     $query->andWhere('p.' . $param . )
-        // }
-        // ---------------------------------------From stack overflow
-        // $query = $em->createQuery('SELECT u FROM Users u WHERE u.id IN (:id)');
-        // $query->setParameter('id', array(1, 9));
-        // $users = $query->getResult();
-        // ------------------------------------------
-
-
-        // $query = $this->createQueryBuilder('p')
-        // ->andWhere('p.type = :tipas')
-        // ->andWhere('p.miestas = :miestas')
-        // ->setParameter('tipas', 'butai')
-        // ->setParameter('miestas', 'Vilnius')
-        // ->getQuery()
-        // ->getResult()
-        // ;
-        //
-        // dd($query->getQuery());
-        // return $query;
-
-        // return $this->createQueryBuilder('p')
-        // ->andWhere('p.type = :tipas')
-        // ->andWhere('p.miestas = :miestas')
-        // ->andWhere('p.irengimas = :apdaila')
-        // ->setParameter('tipas', $tipas)
-        // ->setParameter('miestas', $miestas)
-        // ->setParameter('apdaila', $apdaila)
-        // ->getQuery()
-        // ->getResult()
-        // ;
+        return $result;
     }
+
+
+    //dd($query->getQuery());
+
+
+    // foreach ($params as $param) {
+    //     $query->andWhere('p.' . $param . )
+    // }
+    // ---------------------------------------From stack overflow
+    // $query = $em->createQuery('SELECT u FROM Users u WHERE u.id IN (:id)');
+    // $query->setParameter('id', array(1, 9));
+    // $users = $query->getResult();
+    // ------------------------------------------
+
+
+    // $query = $this->createQueryBuilder('p')
+    // ->andWhere('p.type = :tipas')
+    // ->andWhere('p.miestas = :miestas')
+    // ->setParameter('tipas', 'butai')
+    // ->setParameter('miestas', 'Vilnius')
+    // ->getQuery()
+    // ->getResult()
+    // ;
+    //
+    // dd($query->getQuery());
+    // return $query;
+
+    // return $this->createQueryBuilder('p')
+    // ->andWhere('p.type = :tipas')
+    // ->andWhere('p.miestas = :miestas')
+    // ->andWhere('p.irengimas = :apdaila')
+    // ->setParameter('tipas', $tipas)
+    // ->setParameter('miestas', $miestas)
+    // ->setParameter('apdaila', $apdaila)
+    // ->getQuery()
+    // ->getResult()
+    // ;
 
     // public function findByExampleField($value)
     // {

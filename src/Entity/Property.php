@@ -3,11 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use JsonSerializable;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
  */
-class Property
+class Property implements JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -225,6 +225,26 @@ class Property
 
         return $this;
     }
+
+    public function jsonSerialize()
+{
+    return
+    [
+        'id'   => $this->getId(),
+        'gatve' => $this->getGatve(),
+        'plotas' => $this->getPlotas(),
+        'miestas' => $this->getMiestas(),
+        'butonr' => $this->getButonr(),
+        'aukstas' => $this->getAukstas(),
+        'apdaila' => $this->getapdaila(),
+        'kaina' => $this->getKaina(),
+        'nuotraukos' => $this->getNuotraukos(),
+        'type' => $this->getType(),
+        'rajonas' => $this->getRajonas(),
+        'KambariuSkaicius' => $this->getKambariuSkaicius(),
+
+    ];
+}
 
 
 }
