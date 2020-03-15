@@ -61,17 +61,27 @@ class MainPageSearchController extends AbstractController
         ->findByParams($searchParams);
 
         //die('check');
-        dump($foundProperties);
-        $not_private_arr = [];
+        $foundEncodedProperties = json_encode($foundProperties);
+        dump($foundEncodedProperties);
 
-        foreach ($foundProperties as $property) {
-            $not_private_arr[] = $property->getGatve();
-            $not_private_arr[] = $property->getPlotas();
-        }
+        $response = new Response();
+        $response->setContent(json_encode($foundProperties));
+        $response->headers->set('Content-Type', 'application/json');
 
-        $json_encoded_public = json_encode($not_private_arr);
-        dd($json_encoded_public);
-        die('gg');
+        return $response;
+        //die('check2');
+        //die('check');
+        // dump($foundProperties);
+        // $not_private_arr = [];
+        //
+        // foreach ($foundProperties as $property) {
+        //     $not_private_arr[] = $property->getGatve();
+        //     $not_private_arr[] = $property->getPlotas();
+        // }
+        //
+        // $json_encoded_public = json_encode($not_private_arr);
+        // dd($json_encoded_public);
+        // die('gg');
         //return $this->json(['foundProperties' => $foundProperties]);
 
 

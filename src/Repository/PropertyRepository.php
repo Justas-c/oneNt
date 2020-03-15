@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Property;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @method Property|null find($id, $lockMode = null, $lockVersion = null)
@@ -46,10 +47,25 @@ class PropertyRepository extends ServiceEntityRepository
         $result = $query->getQuery()->getResult();
 
         // /dd($result);
-        $jsonEncoded = json_encode($result);
-        dd($jsonEncoded);
+        // $jsonEncoded = json_encode($result);
+        //dd($jsonEncoded);
+        // echo "<pre>";
+        // print_r($jsonEncoded);
+        // echo '</pre>';
+        //die('gg');
 
+        // $response = new Response();
+        // // set content type application_json.
+        // return $response;
+        //
         return $result;
+
+
+        // $response = new Response();
+        // $response->setContent(json_encode($result));
+        // $response->headers->set('Content-Type', 'application/json');
+        //
+        // return $response;
     }
 
 
