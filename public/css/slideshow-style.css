@@ -149,6 +149,6 @@ img.absolutew100 {
 /* Large devices (desktops, 992px and up) */
  @media (min-width: 992px) {
    .slideshow-container {
-       min-height: 550px;
+       min-height: 525px;
    }
 }

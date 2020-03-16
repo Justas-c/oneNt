@@ -26,9 +26,6 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
-        // }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -75,10 +72,6 @@ class SecurityController extends AbstractController
         // return $this->redirectToRoute('app_homepage');
         return $guardHandler->authenticateUserAndHandleSuccess($user, $request, $formAuthenticator,'main');
         }
-        // // forma:
-        // $ffform = $form->createView();
-        // dump($ffform);
-        // die();
 
         return $this->render('security/register.html.twig',[
             'registerForm' => $form->createView()

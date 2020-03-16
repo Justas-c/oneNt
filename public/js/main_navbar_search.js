@@ -1,5 +1,9 @@
-// Add rajonai according to coressponding city name
+/**
+ * All the functions relevant to implementing javascript search
+ * funcs: rajonSelect, searchProperties, myAjax, createCard
+ */
 
+// Add rajonai according to coressponding city name
 function rajonSelect(){
     let cityField = document.getElementById('mainNavCity');
     let districtField = document.getElementById('mainNavRajon');
@@ -81,34 +85,23 @@ function myAjax() {
             // info:
             console.log(this.responseText);
 
-            //found properties
+            //found properties json
             var foundProperties = JSON.parse(this.responseText);
             // clear div
             document.getElementById('search-results').innerHTML = '';
 
+            // add all new cards created to search-results element:
             var allCards = '';
-
             for (var i = 0; i < foundProperties.length; i++) {
-                //createCard(foundProperties[i]);
                 allCards += createCard(foundProperties[i]);
             }
 
-            // add all new cards created to search-results element:
-
             // Display cards:
             document.getElementById('search-results').innerHTML = allCards;
-
-            console.log(foundProperties);
-            // 1) create element
-            var propertydiv = document.createElement('div');
-            //propertyDiv.className = 'col-12 col-md-4';
-            for (var i = 0; i < foundProperties.length; i++) {
-                console.log(foundProperties.length);
-            }
         }
     }
-    ep2 = 'http://' + searchProperties();
-    xhttp.open("GET", ep2, true);
+    ep = 'http://' + searchProperties();
+    xhttp.open("GET", ep, true);
     xhttp.send();
 }
 
@@ -117,6 +110,8 @@ function myAjax() {
  * def: will create a card element tree and add values. All in string format.
  */
 function createCard(Property) {
+    // all the html divs
+
     // 1) form
     //div1 col
     const mainCol = '<div class="col-12 col-md-4">';
@@ -124,12 +119,15 @@ function createCard(Property) {
     // div2 card
     const card = '<div class="card my-3 mx-1">';
     const cardclose = '</div>';
-    //div3 img
-    var img = '<a href="#"><img class="card-img-top card-img" src="/images/uploads/{img}" alt="img"></a>';
-    //div4 cardbody
+    //div3 link
+    link =  '<a href="/individual-property-{id}">';
+    linkclose = '</a>';
+    //div4 img
+    var img = '<img class="card-img-top card-img" src="/images/uploads/{img}" alt="img">';
+    //div5 cardbody
     const cardBody = '<div class="card-body">';
     const cardBodyclose = '</div>';
-    //div5 row
+    //div6 row
     const cardBodyRow = '<div class="row">';
     const cardBodyRowclose ='</div>';
 
@@ -139,87 +137,19 @@ function createCard(Property) {
     var kaina        = '<div class="col-3 p-1"> € {kaina} </div>';
 
     // 2) add values to the form
+    link = link.replace('{id}', Property['id']);
     img = img.replace('{img}', Property['nuotraukos']);
     gatveMiestas = gatveMiestas.replace('{gatveMiestas}', Property['gatve']);
     plotas       = plotas.replace('{plotas}', Property['plotas']);
     kambSkaicius  = kambSkaicius.replace('{kambSkaicius}', Property['KambariuSkaicius']);
     kaina        = kaina.replace('{kaina}', Property['kaina']);
 
-    var finalCardStr = mainCol + card + img + cardBody + cardBodyRow + gatveMiestas + plotas + kambSkaicius + kaina + '</div></div></div></div>';
+    // construct the card str
+    var finalCardStr = mainCol + card + link + img + linkclose + cardBody + cardBodyRow + gatveMiestas + plotas + kambSkaicius + kaina + '</div></div></div></div>';
     console.log(finalCardStr);
     return finalCardStr;
-    // console.log(finalCardStr);
-    // helpinfo:
-    //const finalMarkup = products.map(({ title }) => myTemplate.replace('{title}', title));
+
 }
-    // 3) combine
 
-
-
-    // sample form
-    /**
-    <div class="col-12 col-md-4"><div class="card my-3 mx-1">
-        <a href="#"><img src="" alt="img"></a>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-12 p-1">1</div>
-                <div class="col-3 p-1">2</div>
-                <div class="col-4 p-1">3</div>
-                <div class="col-4 p-1">4</div>
-            </div>
-        </div>
-    </div></div>
-    */
-
-
-
-// row_elem = document.createElement('div');
-// row_elem.className = 'row';
-// somehow it didn't work on multiple lines
-// var row1 = '<div class="row">';
-// var row2 = '</div>'
-// var x = [{title: 'world'}, {title: 'world2'}];
-
-// somehow it didn't register as html string on multiline so i packed it on one line
-//var singleCardMarkup = '<div class="col-12 col-md-4"><div class="card my-3 mx-1"><a href="#"><img src="" alt="img"></a><div class="card-body"><div class="row"><div class="col-12 p-1">{gatve,miestas}</div><div class="col-3 p-1">{plotas}</div><div class="col-4 p-1">City</div></div></div></div></div>';
-//finalCardMarkup = singleCard.replace('{title}', 'rereqrqreqwe');
-//finalCardMarkup = x.map(( { title } ) => singleCard.replace('{title}', title));
-// console.log('founded:');
-// console.log(foundProperties);
-//
-// for (var i = 0; i < foundProperties.length; i++) {
-//     var singleProperty = foundProperties[i];
-//     var gatve_miestas = foundProperties[i]['gatve'] + ', ' + foundProperties[i]['miestas']
-//     var plotas = foundProperties[i]['plotas'] + ' m²';
-//
-//     //finalCardMarkup = singleProperty()
-//     // const finalMarkup = products.map(({ title }) => myTemplate.replace('{title}', title))
-//
-//     finalCardMarkup = singleCardMarkup.replace('{gatve,miestas}', gatve_miestas);
-//     finalCardMarkup = singleCardMarkup.replace('{plotas}', plotas);
-//     //finalCardMarkup = singleCardMarkup.replace('{gatve,miestas}', gatve_miestas);
-//     row1 += finalCardMarkup;
-// }
-// row1 += '</div>'; // closing row tag
-// console.log(row1);
-//
-//
-// console.log(finalCardMarkup);
-// console.log('check1:');
-// var xx = document.getElementById('search-results');
-// console.log(singleCardMarkup);
-// //xx.innerHTML = finalCardMarkup;
-// xx.innerHTML = row1;
-// console.log(xx);
-
-//}
-// add event listener
+// event listener
 document.getElementById('mainpage-search').addEventListener('click', myAjax);
-//----------------------------------------------------------------------------//
-
-// info:
-// const products = [{ title: 'gearbox' }, { title: 'drive shaft' }, { title: 'spark plug'}]
-// const myTemplate = '<div class="product">{title}</div>'
-// const finalMarkup = products.map(({ title }) => myTemplate.replace('{title}', title))
-//
-// document.getElementId('targetNode').innerHtml = finalMarkup

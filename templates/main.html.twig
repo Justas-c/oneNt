@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block body %}
-    {{ dump(properties)}}
+    {# dump(properties) #}
     {{ parent() }}
 {% endblock %}
 
@@ -50,7 +50,7 @@
         {% endfor %}
 
         <!-- sample elem -->
-        <div class="col-12 col-md-4">
+        <!-- <div class="col-12 col-md-4">
             <div class="card my-3 mx-1">
                 <a href="#"><img src="" alt="img"></a>
             <div class="card-body">
@@ -60,16 +60,10 @@
                     <div class="col-4 p-1">City</div>
                 </div>
             </div>
-        </div></div>
+        </div></div> -->
 
     </div></div> <!-- /container,row -->
 {% endblock %}
-
-
-
-{# block javascripts #}
-    {# parent() #}
-{# endblock #}
 
 {% block footer %}
     {{ parent() }}

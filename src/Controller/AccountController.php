@@ -74,22 +74,3 @@ class AccountController extends AbstractController
         return $this->render('account/add_property_form.html.twig', ['addPropertyForm' => $form->createView()]);
     }
 }
-
-// $form->handleRequest($request);
-
-// // // if invalid
-// // if ($form->isSubmitted() && !$form->isValid()){
-// //     die('form not valid');
-// // }
-//
-// // on submit:
-// if ($form->isSubmitted() && $form->isValid()){
-//     /** @var User $user **/
-//     $user = $form->getData();
-//     $user->setEmail($user->getEmail());
-//     $user->setPassword($passwordEncoder->encodePassword($user, $user->getPassword()));
-//     $user->setFirstName('vardas');
-//     $user->setLastName('Pavarde');
-//     $em = $this->getDoctrine()->getManager();
-//     $em->persist($user);
-//     $em->flush();

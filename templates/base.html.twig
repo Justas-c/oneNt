@@ -15,7 +15,7 @@
 <body>
 
 {# info: #}
-{{ dump(app) }}
+{# dump(app) #}
 
 {# flash messages(success only for now) #}
 {% for message in app.flashes('success') %}
@@ -38,11 +38,6 @@
     {% block footer %}
     <!-- FOOTER -->
         <footer class="footer">
-            <!-- Testing img div -->
-            <!-- <div style="background-image: {# asset('images/appImgs/homepage-img/footer-img.jpg') #}">
-                <img src="{# asset('images/testpic.jpg') #}">
-                <span>footer</span>
-            </div> -->
         </footer>
 
         <!-- Javascript -->

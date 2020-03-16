@@ -15,31 +15,8 @@ class UserFixtures extends Fixture
          $this->passwordEncoder = $passwordEncoder;
     }
 
-    public function load(ObjectManager $manager)
-    {
-        // // create 3 users
-        // $vardai = ['Varus', 'Marus', 'Darus'];
-        // for ($i=0; $i < count($vardai); $i++) {
-        //     $user = new User();
-        //     $user->setFirstName($vardai[$i]);
-        //     $user->setLastName('lastname');
-        //     $user->setEmail($vardai[$i] . '@onent.test');
-        //     $user->setPassword($this->passwordEncoder->encodePassword($user, 'e1'));
-        //     $manager->persist($user);
-        // }
-
-        // // create 3 admins
-        //     $adVardai = ['ad_Varius', 'ad_Marius', 'ad_Darius'];
-        //     for ($i=0; $i < 3; $i++) {
-        //         $admin = new User();
-        //         $admin->setFirstName($adVardai[$i]);
-        //         $admin->setLastName('lastname');
-        //         $admin->setEmail($adVardai[$i] . '@sf.test');
-        //         $admin->setPassword($this->passwordEncoder->encodePassword($admin, 'e1'));
-        //         $admin->setRoles(['ROLE_ADMIN']);
-        //         $manager->persist($admin);
-        //     }
-
-        $manager->flush();
-    }
+    // public function load(ObjectManager $manager)
+    // {
+    //     $manager->flush();
+    // }
 }
