@@ -14,15 +14,17 @@
 
 
 {% block Content %}
+
+
     <!-- main alignment -->
-    <div class="container"><div class="row">
+    <div class="container"><div class="row" id="search-results">
         <!-- if not found -->
             {% if properties|length == 0 %}
                 <div class="col mb-5">{{ 'skelbimų pagal esamus paieškos parametrus nerasta' }}</div>
             {% endif %}
         <!-- else: -->
         {% for property in properties %}
-        <div class="col-12 col-md-4 ">
+        <div class="col-12 col-md-4">
             <div class="card my-3 mx-1">
             <a href="/individual-property-{{ property.id }}">
                 <img class="card-img-top card-img" src="/images/uploads/{{ property.nuotraukos }}" alt="Card image cap">
@@ -41,16 +43,24 @@
                         <div class="col-4 p-1">
                             <span class="sp-main-params">{{'€ ' ~ property.kaina}}</span>
                         </div>
-
                     </div>
-                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
             </div>
         </div>
-
-        <!-- <img class="dsp-properties-img" src="/images/uploads/{# property.nuotraukos #}" alt="foto">
-        <p> images/uploads/{# property.nuotraukos #}</p> -->
         </div>
         {% endfor %}
+
+        <!-- sample elem -->
+        <div class="col-12 col-md-4">
+            <div class="card my-3 mx-1">
+                <a href="#"><img src="" alt="img"></a>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 p-1">Country</div>
+                    <div class="col-3 p-1">State</div>
+                    <div class="col-4 p-1">City</div>
+                </div>
+            </div>
+        </div></div>
 
     </div></div> <!-- /container,row -->
 {% endblock %}

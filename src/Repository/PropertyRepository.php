@@ -30,14 +30,18 @@ class PropertyRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * Find property by params given.
+     * Note: I added the loop because earlier code return arbitrary number of values to search on. I added small security feature
+     * in controller to cancel query if any unfamiliar keys given.I'm sure there is better way to do it and I will rewrite it in the future.
+     */
     public function findByParams($params)
     {
         $query = $this->createQueryBuilder('p');
         foreach ($params as $key => $value) {
             // TODO:
             if ($key == 'plotas') {
-                // reik pagalvot
-
+                // reik pagalvot nzn kolkas
             } else {
                 $query->andWhere('p.' . $key . ' = :' . $key);
                 $query->setParameter($key, $value);
@@ -45,137 +49,6 @@ class PropertyRepository extends ServiceEntityRepository
         }
         dump($query->getQuery());
         $result = $query->getQuery()->getResult();
-
-        // /dd($result);
-        // $jsonEncoded = json_encode($result);
-        //dd($jsonEncoded);
-        // echo "<pre>";
-        // print_r($jsonEncoded);
-        // echo '</pre>';
-        //die('gg');
-
-        // $response = new Response();
-        // // set content type application_json.
-        // return $response;
-        //
         return $result;
-
-
-        // $response = new Response();
-        // $response->setContent(json_encode($result));
-        // $response->headers->set('Content-Type', 'application/json');
-        //
-        // return $response;
     }
-
-
-    //dd($query->getQuery());
-
-
-    // foreach ($params as $param) {
-    //     $query->andWhere('p.' . $param . )
-    // }
-    // ---------------------------------------From stack overflow
-    // $query = $em->createQuery('SELECT u FROM Users u WHERE u.id IN (:id)');
-    // $query->setParameter('id', array(1, 9));
-    // $users = $query->getResult();
-    // ------------------------------------------
-
-
-    // $query = $this->createQueryBuilder('p')
-    // ->andWhere('p.type = :tipas')
-    // ->andWhere('p.miestas = :miestas')
-    // ->setParameter('tipas', 'butai')
-    // ->setParameter('miestas', 'Vilnius')
-    // ->getQuery()
-    // ->getResult()
-    // ;
-    //
-    // dd($query->getQuery());
-    // return $query;
-
-    // return $this->createQueryBuilder('p')
-    // ->andWhere('p.type = :tipas')
-    // ->andWhere('p.miestas = :miestas')
-    // ->andWhere('p.irengimas = :apdaila')
-    // ->setParameter('tipas', $tipas)
-    // ->setParameter('miestas', $miestas)
-    // ->setParameter('apdaila', $apdaila)
-    // ->getQuery()
-    // ->getResult()
-    // ;
-
-    // public function findByExampleField($value)
-    // {
-    //     return $this->createQueryBuilder('p')
-    //         ->andWhere('p.exampleField = :val')
-    //         ->setParameter('val', $value)
-    //         ->orderBy('p.id', 'ASC')
-    //         ->setMaxResults(10)
-    //         ->getQuery()
-    //         ->getResult()
-    //     ;
-    // }
-
-
-
-
-
-    // /**
-    //  * @return Properties[]
-    //  */
-    //  public function findPropertiesByType($type): array
-    //  {
-    //      $em = $this->getEntityManger();
-    //      dd($em);
-    //
-    //  }
-    //
-    // // example:
-    // /**
-    //  * @return Product[]
-    //  */
-    // public function findAllGreaterThanPrice($price): array
-    // {
-    //     $entityManager = $this->getEntityManager();
-    //
-    //     $query = $entityManager->createQuery(
-    //         'SELECT p
-    //         FROM App\Entity\Product p
-    //         WHERE p.price > :price
-    //         ORDER BY p.price ASC'
-    //     )->setParameter('price', $price);
-    //
-    //     // returns an array of Product objects
-    //     return $query->getResult();
-    // }
-
-    // /**
-    //  * @return Property[] Returns an array of Property objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Property
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }
