@@ -47,7 +47,7 @@ class PropertyRepository extends ServiceEntityRepository
                 $query->setParameter($key, $value);
             }
         }
-        dump($query->getQuery());
+        //dump($query->getQuery());
         $result = $query->getQuery()->getResult();
         return $result;
     }
