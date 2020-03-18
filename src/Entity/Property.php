@@ -166,14 +166,14 @@ class Property implements JsonSerializable
         return $this;
     }
 
-    public function getKaina(): ?string
+    public function getKaina(): ?int
     {
         return $this->kaina;
     }
 
-    public function setKaina(?string $kaina): self
+    public function setKaina(?int $kaina): self
     {
-        $this->apdaila = $kaina;
+        $this->kaina = $kaina;
 
         return $this;
     }

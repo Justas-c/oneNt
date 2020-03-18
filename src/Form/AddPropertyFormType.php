@@ -27,13 +27,26 @@ class AddPropertyFormType extends AbstractType
                     ]
                 ])
             ->add('kambariuSkaicius')
-            ->add('miestas')
+            ->add('miestas', ChoiceType::Class, [
+                'choices' => [
+                    'Vilnius' => 'Vilnius',
+                    'Kaunas' => 'Kaunas',
+                    'Taurage' => 'Taurage'
+                ]
+            ])
             ->add('butonr')
             ->add('aukstas')
-            ->add('apdaila')
-            ->add('content')
+            ->add('apdaila', ChoiceType::Class,
+            ['choices' => [
+                'pilna' => 'pilna',
+                'daline' => 'dalinė',
+                'nera' => 'nera'
+            ]
+
+            ])
             ->add('kaina')
-            ->add('nuotraukos', FileType::class, [
+            ->add('content')
+            ->add('nuotraukos', FileType::Class, [
                 'label' => 'upload images:' //,
                 //'multiple' => true
             ])
@@ -48,3 +61,5 @@ class AddPropertyFormType extends AbstractType
         ]);
     }
 }
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
