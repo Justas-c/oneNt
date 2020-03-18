@@ -30,7 +30,7 @@ class AddPropertyFormType extends AbstractType
             ->add('miestas')
             ->add('butonr')
             ->add('aukstas')
-            ->add('irengimas')
+            ->add('apdaila')
             ->add('content')
             ->add('kaina')
             ->add('nuotraukos', FileType::class, [
