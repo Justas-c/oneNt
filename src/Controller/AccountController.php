@@ -54,9 +54,9 @@ class AccountController extends AbstractController
             $postedPropertyData->setNuotraukos($newFilename);
 
             // info
-            dump($request);
-            dump($originalFilename);
-            dump($newFilename);
+            // dump($request);
+            // dump($originalFilename);
+            // dump($newFilename);
             //dd($postedPropertyData);
 
 
